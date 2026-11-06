@@ -8,7 +8,7 @@ Vídeo: **Woman Applying Cream on a Hand**, de **Towfiqu barbhuiya**, Pexels ID 
 - Resolução verificada com ffprobe: **3840 × 2160**, H.264, 30 fps; duração original 22,04 segundos; 65.357.839 bytes.
 - A licença Pexels permite uso comercial gratuito, sem atribuição obrigatória. Permanecem as restrições da licença, inclusive não sugerir endosso das pessoas retratadas. Trata-se de mídia ilustrativa de banco, sem identificação como clínica, profissional ou paciente da Bruna Hertel.
 - Versões locais: trecho de 12 segundos, sem áudio, H.264, CRF 27 em 4K e CRF 25 em 1920 × 1080, MP4 com faststart. A versão 4K não é uma ampliação artificial.
-- O desktop abaixo de 1920 px recebe HD. Telas maiores recebem 4K. Celulares, economia de dados e preferência por movimento reduzido recebem o poster WebP extraído do mesmo vídeo. Falha de vídeo mantém o poster. Controle permite pausar ou retomar a animação.
+- O desktop abaixo de 1920 px recebe HD. Telas maiores recebem 4K. Celulares recebem uma versão vertical 720 × 1280, comprimida e sem áudio. Economia de dados e preferência por movimento reduzido recebem o poster WebP extraído do mesmo vídeo. Falha de vídeo mantém o poster. Controle permite pausar ou retomar a animação.
 
 Outras opções localizadas (não integradas nem verificadas por ffprobe):
 

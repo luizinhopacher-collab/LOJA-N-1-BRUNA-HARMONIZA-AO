@@ -25,9 +25,8 @@ test('conteúdo, contatos, carrossel e layout',async({page},info)=>{
 test('vídeo decorativo e preferência de movimento',async({page},info)=>{
  await page.emulateMedia({reducedMotion:'no-preference'});
  await page.goto('/');
- if(info.project.name==='mobile') {
-  await expect(page.locator('.hero-video')).toHaveCount(0);
- } else {
+ if(info.project.name==='mobile') await expect(page.locator('.hero-video')).toHaveAttribute('src','/videos/bruna-hero-mobile.mp4');
+ {
   const video=page.locator('.hero-video');
   await expect.poll(()=>video.evaluate((v:HTMLVideoElement)=>v.readyState)).toBeGreaterThanOrEqual(2);
   await expect.poll(()=>video.evaluate((v:HTMLVideoElement)=>v.currentTime)).toBeGreaterThan(0);
@@ -47,7 +46,6 @@ test('vídeo decorativo e preferência de movimento',async({page},info)=>{
 });
 
 test('falha de vídeo mantém imagem de fallback',async({page},info)=>{
- test.skip(info.project.name==='mobile','Celulares usam o poster sem baixar vídeo');
  await page.emulateMedia({reducedMotion:'no-preference'});
  await page.route('**/videos/*.mp4',route=>route.abort());
  const failedRequest=page.waitForEvent('requestfailed',r=>r.url().endsWith('.mp4'));

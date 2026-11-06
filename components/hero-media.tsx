@@ -11,16 +11,16 @@ export function HeroMedia() {
 
   useEffect(() => {
     const reduced = matchMedia('(prefers-reduced-motion: reduce)');
-    const desktop = matchMedia('(min-width: 768px)');
+    const mobile = matchMedia('(max-width: 760px)');
     const large = matchMedia('(min-width: 1920px)');
     const connection = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection;
     const update = () => {
-      setSource(!reduced.matches && desktop.matches && !connection?.saveData
-        ? `/videos/bruna-hero-${large.matches ? '4k' : 'hd'}.mp4` : null);
+      setSource(!reduced.matches && !connection?.saveData
+        ? `/videos/bruna-hero-${mobile.matches ? 'mobile' : large.matches ? '4k' : 'hd'}.mp4` : null);
     };
     update();
-    [reduced, desktop, large].forEach(query => query.addEventListener('change', update));
-    return () => [reduced, desktop, large].forEach(query => query.removeEventListener('change', update));
+    [reduced, mobile, large].forEach(query => query.addEventListener('change', update));
+    return () => [reduced, mobile, large].forEach(query => query.removeEventListener('change', update));
   }, []);
 
   async function togglePlayback() {

@@ -1,0 +1,7 @@
+import type { HTMLAttributes, ReactNode } from 'react';
+import { Button } from './button';
+import { cn } from '@/lib/utils';
+export function GlassFilter() { return <svg className="glass-filter" aria-hidden="true"><defs><filter id="glass-distortion" x="-20%" y="-20%" width="140%" height="140%"><feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="2" seed="4" result="noise"/><feComponentTransfer in="noise" result="soft"><feFuncA type="linear" slope="0.5"/></feComponentTransfer><feGaussianBlur in="soft" stdDeviation="2" result="blur"/><feSpecularLighting in="blur" surfaceScale="2" specularConstant="0.5" specularExponent="20" lightingColor="#ffffff" result="light"><feDistantLight azimuth="45" elevation="60"/></feSpecularLighting><feDisplacementMap in="SourceGraphic" in2="noise" scale="5" xChannelSelector="R" yChannelSelector="G"/></filter></defs></svg>; }
+export function GlassEffect({className,...props}: HTMLAttributes<HTMLDivElement>) { return <div className={cn('glass',className)} {...props}/>; }
+export function GlassDock({children,className}: {children:ReactNode;className?:string}) { return <GlassEffect className={cn('glass-dock',className)}>{children}</GlassEffect>; }
+export function GlassButton({href,children,className}: {href:string;children:ReactNode;className?:string}) { return <Button asChild className={cn('glass glass-button',className)}><a href={href}>{children}</a></Button>; }
